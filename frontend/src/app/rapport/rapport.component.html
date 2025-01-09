@@ -1,15 +1,15 @@
-<form [formGroup]="rapportForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
-      <mat-label>Titre</mat-label>
-      <input matInput formControlName="titre" required>
-    </mat-form-field>
-  
-    <mat-form-field appearance="fill">
-      <mat-label>Contenu</mat-label>
-      <textarea matInput formControlName="contenu" required rows="4"></textarea>
-    </mat-form-field>
-  
-    <button mat-raised-button color="primary" type="submit" [disabled]="!rapportForm.valid">
-      Create Report
-    </button>
-  </form>
+<form [formGroup]="rapportForm" (ngSubmit)="onSubmit()" class="rapport-form">
+  <div class="form-field">
+    <label for="titre">Titre</label>
+    <input id="titre" formControlName="titre" type="text" required />
+  </div>
+
+  <div class="form-field">
+    <label for="contenu">Contenu</label>
+    <textarea id="contenu" formControlName="contenu" rows="4" required></textarea>
+  </div>
+
+  <button type="submit" class="submit-button" [disabled]="!rapportForm.valid">
+    Create Report
+  </button>
+</form>

@@ -1,7 +1,10 @@
-<h2>My Reports</h2>
-<ul>
-  <li *ngFor="let rapport of rapports">
-    {{ rapport.id }} - {{ rapport.someField }}
-  </li>
-</ul>
-<button (click)="createRapport()">Create New Report</button>
+<section class="reports-section">
+  <h2 class="reports-title">My Reports</h2>
+  <ul class="reports-list">
+    <li class="report-item" *ngFor="let rapport of rapports">
+      <span class="report-id">{{ rapport.id }}</span> - 
+      <span class="report-field">{{ rapport.someField }}</span>
+    </li>
+  </ul>
+  <button class="create-report-button" (click)="createRapport()">Create New Report</button>
+</section>

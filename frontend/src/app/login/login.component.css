@@ -1,32 +1,90 @@
-label {
-    display: block;
-    margin-top: 10px;
+/* Card Container */
+.custom-card {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Title */
+.custom-card-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: #3f51b5;
+}
+
+/* Form Container */
+.custom-card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Field */
+.custom-form-field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.custom-form-field label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+.custom-form-field input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.custom-form-field input:focus {
+  border-color: #3f51b5;
+  outline: none;
+}
+
+/* Button */
+.custom-submit-button {
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  background: #3f51b5;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.custom-submit-button:hover {
+  background: #303f9f;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .custom-card {
+    padding: 20px;
   }
-  
-  .card-container.card {
-    max-width: 400px !important;
-    padding: 40px 40px;
+
+  .custom-card-title {
+    font-size: 20px;
   }
-  
-  .card {
-    background-color: #f7f7f7;
-    padding: 20px 25px 30px;
-    margin: 0 auto 25px;
-    margin-top: 50px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+  .custom-form-field input {
+    font-size: 14px;
   }
-  
-  .profile-img-card {
-    width: 96px;
-    height: 96px;
-    margin: 0 auto 10px;
-    display: block;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
+
+  .custom-submit-button {
+    font-size: 14px;
   }
+}

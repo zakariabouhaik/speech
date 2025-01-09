@@ -1,17 +1,30 @@
-<mat-card>
-    <h2>Login</h2>
-    <form (ngSubmit)="onSubmit($event)" class="login-form">
-      <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Username</mat-label>
-        <input matInput [(ngModel)]="username" name="username" required />
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Password</mat-label>
-        <input matInput [(ngModel)]="password" name="password" type="password" required />
-      </mat-form-field>
-  
-      <button mat-raised-button color="primary" type="submit">login</button>
-    </form>
-  </mat-card>
-  
+<div class="custom-card">
+  <h2 class="custom-card-title">Welcome Back</h2>
+  <form (ngSubmit)="onSubmit($event)" class="custom-card-form">
+    <div class="custom-form-field">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        type="text"
+        name="username"
+        placeholder="Enter your username"
+        [(ngModel)]="username"
+        required
+      />
+    </div>
+
+    <div class="custom-form-field">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        placeholder="Enter your password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
+
+    <button type="submit" class="custom-submit-button">Login</button>
+  </form>
+</div>

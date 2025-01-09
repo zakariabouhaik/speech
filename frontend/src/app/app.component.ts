@@ -7,14 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RouterLink, MatToolbarModule, MatButtonModule],
-  template: `
-    <mat-toolbar color="primary">
-      <span>Speech App</span>
-      <span style="flex: 1 1 auto"></span>
-      <button mat-button routerLink="/login">Login</button>
-      <button mat-button routerLink="/register">Register</button>
-    </mat-toolbar>
-    <router-outlet></router-outlet>
-  `
+  templateUrl: './app.component.html',
 })
 export class AppComponent {}

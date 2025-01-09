@@ -18,17 +18,32 @@ export class RegisterComponent {
   username = '';
   email = '';
   password = '';
+  confirmPassword = '';
+  passwordMismatch = false;
 
   constructor(private authService: AuthService) {}
 
   onSubmit(event: Event): void {
     event.preventDefault();
-  this.authService.register({
-    username: this.username,
-    email: this.email,
-    password: this.password}).subscribe({
-      next: () => alert('Registration successful!'),
-      error: (err) => alert('Registration failed!'),
-    });
+
+    // Check if passwords match
+    if (this.password !== this.confirmPassword) {
+      this.passwordMismatch = true;
+      return;
+    }
+
+    this.passwordMismatch = false;
+
+    // Call the registration service
+    this.authService
+      .register({
+        username: this.username,
+        email: this.email,
+        password: this.password,
+      })
+      .subscribe({
+        next: () => alert('Registration successful!'),
+        error: (err) => alert('Registration failed!'),
+      });
   }
 }
