@@ -1,0 +1,7 @@
+<h2>My Reports</h2>
+<ul>
+  <li *ngFor="let rapport of rapports">
+    {{ rapport.id }} - {{ rapport.someField }}
+  </li>
+</ul>
+<button (click)="createRapport()">Create New Report</button>

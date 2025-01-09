@@ -24,19 +24,6 @@ public class Utilisateur {
     @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL)
     private List<Rapport> rapports;
 
-
-    public Utilisateur() {
-    }
-
-    public Utilisateur(Long id, String username, String email, String password, String role, List<Rapport> rapports) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.rapports = rapports;
-    }
-
     // Getters
     public Long getId() {
         return id;
