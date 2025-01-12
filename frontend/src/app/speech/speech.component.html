@@ -19,10 +19,10 @@
     <button class="record-button" (click)="startListening()" 
             [class.recording]="isListening">
       <span *ngIf="!isListening">
-        {{ currentLanguage === 'ar' ? 'ابدأ التسجيل' : 'Commencer l'enregistrement' }}
+        {{ currentLanguage === 'ar' ? 'ابدأ التسجيل' : 'Commencer l\'enregistrement' }}
       </span>
       <span *ngIf="isListening">
-        {{ currentLanguage === 'ar' ? 'إيقاف التسجيل' : 'Arrêter l'enregistrement' }}
+        {{ currentLanguage === 'ar' ? 'إيقاف التسجيل' : 'Arrêter l\'enregistrement' }}
       </span>
     </button>
   </div>
