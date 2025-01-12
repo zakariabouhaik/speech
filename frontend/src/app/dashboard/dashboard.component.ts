@@ -20,11 +20,20 @@ export class DashboardComponent implements OnInit {
 
   getAllRapports(): void {
     this.rapportService.getAllRapports().subscribe({
-      next: (data) => this.rapports = data,
-      error: (err) => console.error(err)
+      next: (data) => {
+        // Assuming `data` is an array of rapports
+        this.rapports = data.map(rapport => ({
+          titre: rapport.titre,  // Accessing the title
+          contenu: rapport.contenu // Accessing the description
+        }));
+      },
+      error: (err) => {
+        console.error('Error fetching rapports:', err);
+      }
     });
   }
+  
   createRapport(): void {
-    this.router.navigate(['/rapport']);
+    this.router.navigate(['/speech']);
   }
 }

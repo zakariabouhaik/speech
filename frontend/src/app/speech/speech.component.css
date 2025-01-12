@@ -1,0 +1,140 @@
+.speech-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.language-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.language-button:hover {
+  background-color: #0056b3;
+}
+
+.control-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.control-button:hover {
+  background-color: #218838;
+}
+
+.stop-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.stop-button:hover {
+  background-color: #c82333;
+}
+
+.text-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  min-height: 50px;
+}
+
+.transcribed-text {
+  font-size: 16px;
+  color: #333;
+  white-space: pre-wrap;
+}
+/* Section Title Input Styling */
+.section-title-input {
+  margin-bottom: 20px;
+}
+
+.section-title-input label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.section-title-input input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+/* Section Title Input Alignment */
+.section-title-input {
+  margin-bottom: 20px;
+}
+
+.section-title-input label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.section-title-input input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Right Align for Arabic */
+.right-align {
+  text-align: right;
+}
+
+/* Left Align for French */
+.left-align {
+  text-align: left;
+}
+.record-button {
+  padding: 15px 30px;
+  border-radius: 25px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.record-button.recording {
+  background-color: #f44336;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

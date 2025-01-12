@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Rapport } from '../models/rapport.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class RapportService {
 
   constructor(private http: HttpClient) { }
 
-  creerRapport(rapport: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}`, rapport);
+  creerRapport(rapport: Rapport): Observable<Rapport> {
+    return this.http.post<Rapport>(this.baseUrl, rapport);
   }
 
   getAllRapports(): Observable<any[]> {

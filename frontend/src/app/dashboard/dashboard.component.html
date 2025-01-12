@@ -1,10 +1,28 @@
 <section class="reports-section">
   <h2 class="reports-title">My Reports</h2>
+  <div class="create-post-container">
+    <button class="create-report-button" (click)="createRapport()">Create New Report</button>
+  </div>
+  
   <ul class="reports-list">
     <li class="report-item" *ngFor="let rapport of rapports">
-      <span class="report-id">{{ rapport.id }}</span> - 
-      <span class="report-field">{{ rapport.someField }}</span>
+      <div class="report-header">
+        <div class="user-info">
+          <div class="user-avatar">U</div> <!-- Placeholder for user avatar -->
+          <div class="user-details">
+            <span class="user-name">{{ rapport.utilisateurId }}</span> <!-- Placeholder for user name -->
+            <span class="post-time">Just now</span> <!-- Placeholder for time of report -->
+          </div>
+        </div>
+      </div>
+      <div class="report-content">
+        <h3 class="report-title">{{ rapport.titre }}</h3>
+        <p class="report-description">{{ rapport.contenu }}</p>
+      </div>
+      <div class="report-footer">
+        <button class="like-button">Like</button>
+        <button class="comment-button">Comment</button>
+      </div>
     </li>
   </ul>
-  <button class="create-report-button" (click)="createRapport()">Create New Report</button>
 </section>

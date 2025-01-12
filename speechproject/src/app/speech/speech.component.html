@@ -1,0 +1,13 @@
+<div class="speech-container">
+  <button (click)="toggleLanguage()">
+    {{ currentLanguage === 'ar' ? 'العربية' : 'Français' }}
+  </button>
+  
+  <button (click)="startListening()" [disabled]="isListening">
+    {{ isListening ? 'En écoute...' : 'Commencer l\'écoute' }}
+  </button>
+  
+  <div class="text-container">
+    <p>{{ text || 'Le texte transcrit apparaîtra ici...' }}</p>
+  </div>
+</div>

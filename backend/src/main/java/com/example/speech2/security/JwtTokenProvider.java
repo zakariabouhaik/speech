@@ -23,16 +23,18 @@ public class JwtTokenProvider {
         Date currentDate = new Date();
         Date expireDate = new Date(currentDate.getTime() + jwtExpirationInMs);
 
-        // Création d'une clé sécurisée à partir du secret
+        // Create a secure key from the secret
         SecretKey key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
 
         return Jwts.builder()
-                .setSubject(username)
-                .setIssuedAt(new Date())
-                .setExpiration(expireDate)
-                .signWith(key)
+                .setSubject(username) // Sets the subject to the username
+                .claim("username", username) // Adds the username as a custom claim
+                .setIssuedAt(currentDate) // Issue date
+                .setExpiration(expireDate) // Expiration date
+                .signWith(key) // Sign with the key
                 .compact();
     }
+
 
     public String getUsernameFromJWT(String token) {
         SecretKey key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));

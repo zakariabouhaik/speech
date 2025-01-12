@@ -24,14 +24,17 @@ export class LoginComponent {
   onSubmit(event: Event): void {
     event.preventDefault();
     this.authService.login({
-        username: this.username,
-        password: this.password,
+      username: this.username,
+      password: this.password,
     }).subscribe({
-        next: () => {
-            this.router.navigate(['/dashboard']);
-            alert('Login successful!');
-        },
-        error: (err) => alert('Login failed! ' + err.error.message),
+      next: (response) => {
+        console.log('Login response:', response); // Debug log
+        localStorage.setItem('accessToken', response.token);
+        const username = this.authService.getUsernameFromToken(response.token);
+        localStorage.setItem('username', username);
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => alert('Login failed! ' + err.error.message),
     });
-}
+  }
 }

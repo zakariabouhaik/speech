@@ -1,0 +1,45 @@
+<div class="speech-container">
+  <!-- Section Title Input -->
+  <div class="section-title-input" [ngClass]="{'right-align': currentLanguage === 'ar', 'left-align': currentLanguage === 'fr-FR'}">
+    <label for="titleInput">{{ currentLanguage === 'ar' ? 'عنوان التقرير' : 'Titre du Rapport' }}</label>
+    <input id="titleInput" [(ngModel)]="rapport.titre" type="text" 
+           placeholder="{{ currentLanguage === 'ar' ? 'أدخل العنوان هنا' : 'Entrez le titre ici' }}" />
+  </div>
+
+  <!-- Language Selection -->
+  <div class="controls">
+    <button class="language-button" (click)="toggleLanguage()" 
+            [ngClass]="{'right-align': currentLanguage === 'ar', 'left-align': currentLanguage === 'fr-FR'}">
+      {{ currentLanguage === 'ar' ? 'Français' : 'العربية' }}
+    </button>
+  </div>
+
+  <!-- Single Recording Toggle Button -->
+  <div class="controls">
+    <button class="record-button" (click)="startListening()" 
+            [class.recording]="isListening">
+      <span *ngIf="!isListening">
+        {{ currentLanguage === 'ar' ? 'ابدأ التسجيل' : 'Commencer l'enregistrement' }}
+      </span>
+      <span *ngIf="isListening">
+        {{ currentLanguage === 'ar' ? 'إيقاف التسجيل' : 'Arrêter l'enregistrement' }}
+      </span>
+    </button>
+  </div>
+
+  <!-- Transcription Output -->
+  <div class="text-container">
+    <p class="transcribed-text" 
+       [ngClass]="{'right-align': currentLanguage === 'ar', 'left-align': currentLanguage === 'fr-FR'}">
+      {{ rapport.contenu || (currentLanguage === 'ar' ? 'النص المنسوخ سيظهر هنا...' : 'Le texte transcrit apparaîtra ici...') }}
+    </p>
+  </div>
+  <br>
+  <!-- Submit Button -->
+  <div class="controls">
+    <button class="submit-button" (click)="createRapport()" 
+            [disabled]="!rapport.contenu">
+      {{ currentLanguage === 'ar' ? 'إرسال النص' : 'Soumettre le texte' }}
+    </button>
+  </div>
+</div>
