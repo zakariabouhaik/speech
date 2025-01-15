@@ -6,11 +6,11 @@
   <div class="navbar-right">
     <!-- Language Toggle Button -->
     <span class="username-display" *ngIf="loggedInUser">
-      Welcome, {{ loggedInUser.username || "Account"}} 
+      Welcome, {{ loggedInUser.username || 'Account' }}
     </span>
 
     <!-- Navigation Buttons -->
-    <button mat-button class="nav-button" (click)="logOut()">
+    <button mat-button class="nav-button" (click)="logOut()" *ngIf="loggedInUser">
       Logout
     </button>
   </div>

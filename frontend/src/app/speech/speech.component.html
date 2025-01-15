@@ -2,7 +2,7 @@
   <!-- Section Title Input -->
   <div class="section-title-input" [ngClass]="{'right-align': currentLanguage === 'ar', 'left-align': currentLanguage === 'fr-FR'}">
     <label for="titleInput">{{ currentLanguage === 'ar' ? 'عنوان التقرير' : 'Titre du Rapport' }}</label>
-    <input id="titleInput" [(ngModel)]="rapport.titre" type="text" 
+    <input id="titleInput" [(ngModel)]="rapport.titre" type="text" required
            placeholder="{{ currentLanguage === 'ar' ? 'أدخل العنوان هنا' : 'Entrez le titre ici' }}" />
   </div>
 
@@ -21,7 +21,7 @@
       <span *ngIf="!isListening">
         {{ currentLanguage === 'ar' ? 'ابدأ التسجيل' : 'Commencer l\'enregistrement' }}
       </span>
-      <span *ngIf="isListening">
+      <span *ngIf="isListening" (click)="stopListening()">
         {{ currentLanguage === 'ar' ? 'إيقاف التسجيل' : 'Arrêter l\'enregistrement' }}
       </span>
     </button>
@@ -30,7 +30,7 @@
   <!-- Transcription Output -->
   <div class="text-container">
     <p class="transcribed-text" 
-       [ngClass]="{'right-align': currentLanguage === 'ar', 'left-align': currentLanguage === 'fr-FR'}">
+       [ngClass]="{'right-align': currentLanguage === 'ar', 'left-align': currentLanguage === 'fr-FR'}" aria-required="true">
       {{ rapport.contenu || (currentLanguage === 'ar' ? 'النص المنسوخ سيظهر هنا...' : 'Le texte transcrit apparaîtra ici...') }}
     </p>
   </div>
@@ -38,7 +38,7 @@
   <!-- Submit Button -->
   <div class="controls">
     <button class="submit-button" (click)="createRapport()" 
-            [disabled]="!rapport.contenu">
+            [disabled]="!rapport.titre || !rapport.contenu">
       {{ currentLanguage === 'ar' ? 'إرسال النص' : 'Soumettre le texte' }}
     </button>
   </div>

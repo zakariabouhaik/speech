@@ -100,3 +100,12 @@ mat-toolbar {
 body[dir='rtl'] .top-navbar {
   text-align: right;
 }
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.register-link {
+  margin-top: 10px;
+}

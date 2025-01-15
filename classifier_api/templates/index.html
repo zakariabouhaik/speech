@@ -1,0 +1,97 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Classifier</title>
+  </head>
+  <body>
+    <h1>Image Classification</h1>
+    <form id="upload-form">
+      <input type="file" id="image" name="image" accept="image/*" required />
+      <button type="submit">Predict</button>
+    </form>
+    <h2 id="result"></h2>
+    <script>
+      document
+        .getElementById("upload-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const formData = new FormData();
+          const imageFile = document.getElementById("image").files[0];
+          formData.append("image", imageFile);
+
+          try {
+            const response = await fetch("/predict", {
+              method: "POST",
+              body: formData,
+            });
+            const result = await response.json();
+            if (response.ok) {
+              document.getElementById(
+                "result"
+              ).textContent = `Prediction: ${result.prediction}`;
+            } else {
+              document.getElementById(
+                "result"
+              ).textContent = `Error: ${result.error}`;
+            }
+          } catch (error) {
+            document.getElementById(
+              "result"
+            ).textContent = `Error: ${error.message}`;
+          }
+        });
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Classifier</title>
+  </head>
+  <body>
+    <h1>Image Classification</h1>
+    <form id="upload-form">
+      <input type="file" id="image" name="image" accept="image/*" required />
+      <button type="submit">Predict</button>
+    </form>
+    <h2 id="result"></h2>
+    <script>
+      document
+        .getElementById("upload-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const formData = new FormData();
+          const imageFile = document.getElementById("image").files[0];
+          formData.append("image", imageFile);
+
+          try {
+            const response = await fetch("/predict", {
+              method: "POST",
+              body: formData,
+            });
+            const result = await response.json();
+            if (response.ok) {
+              document.getElementById(
+                "result"
+              ).textContent = `Prediction: ${result.prediction}`;
+            } else {
+              document.getElementById(
+                "result"
+              ).textContent = `Error: ${result.error}`;
+            }
+          } catch (error) {
+            document.getElementById(
+              "result"
+            ).textContent = `Error: ${error.message}`;
+          }
+        });
+    </script>
+  </body>
+</html>

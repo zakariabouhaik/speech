@@ -10,15 +10,15 @@
         <div class="user-info">
           <div class="user-avatar">U</div> <!-- Placeholder for user avatar -->
           <div class="user-details">
-            <span class="user-name">{{ rapport.utilisateurId }}</span> <!-- Placeholder for user name -->
-            <span class="post-time">Just now</span> <!-- Placeholder for time of report -->
+            <span class="user-name">{{ rapport.nom }}</span> <!-- Placeholder for user name -->
+            <span class="post-time">{{ rapport.dateCreation }}</span> <!-- Placeholder for time of report -->
           </div>
         </div>
       </div>
       <div class="report-content">
-        <h3 class="report-title">{{ rapport.titre }}</h3>
+        <h3 class="report-title">Title: <span class="report-title-value">{{ rapport.titre }}</span></h3>
         <p class="report-description">{{ rapport.contenu }}</p>
-      </div>
+      </div>      
       <div class="report-footer">
         <button class="like-button">Like</button>
         <button class="comment-button">Comment</button>

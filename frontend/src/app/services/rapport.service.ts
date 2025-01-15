@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Rapport } from '../models/rapport.model';
 
 @Injectable({
@@ -13,9 +13,20 @@ export class RapportService {
   constructor(private http: HttpClient) { }
 
   creerRapport(rapport: Rapport): Observable<Rapport> {
-    return this.http.post<Rapport>(this.baseUrl, rapport);
+    const token = localStorage.getItem('accessToken');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+    });
+    return this.http.post<Rapport>(this.baseUrl, rapport, { headers }).pipe(
+      catchError((error) => {
+        if (error.status === 401) {
+          console.error('Unauthorized! Please log in again.');
+        }
+        return throwError(error);
+      })
+    );
   }
-
+  
   getAllRapports(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}`);
   }

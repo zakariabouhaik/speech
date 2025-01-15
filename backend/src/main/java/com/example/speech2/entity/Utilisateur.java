@@ -1,5 +1,6 @@
 package com.example.speech2.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,6 +23,7 @@ public class Utilisateur {
     private String role;
 
     @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Rapport> rapports;
 
     // Getters

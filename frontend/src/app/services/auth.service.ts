@@ -9,8 +9,8 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class AuthService {
   private baseUrl = 'http://localhost:8081/api/auth';
-  private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
-    public isAuthenticated = this.isAuthenticatedSubject.asObservable();
+  private isAuthenticatedSubject = new BehaviorSubject<boolean>(!!localStorage.getItem('accessToken'));
+  public isAuthenticated = this.isAuthenticatedSubject.asObservable();
     public currentUserSubject = new BehaviorSubject<any>(null);
   currentUser$ = this.currentUserSubject.asObservable();
 
@@ -22,6 +22,7 @@ export class AuthService {
         const username = this.getUsernameFromToken(response.token);
         localStorage.setItem('accessToken', response.token);
         localStorage.setItem('username', username);
+        console.log('username',username);
         this.currentUserSubject.next({ username });
       })
     );

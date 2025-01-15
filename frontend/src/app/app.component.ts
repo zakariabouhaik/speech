@@ -3,7 +3,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 
@@ -18,6 +18,7 @@ import { Router } from '@angular/router';
     MatIconModule,
     CommonModule,
   ],
+  providers: [DatePipe],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

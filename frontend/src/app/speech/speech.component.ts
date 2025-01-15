@@ -93,7 +93,7 @@ export class SpeechComponent implements OnInit {
   }
 
   stopListening() {
-    if (this.recognition) {
+    if (this.recognition && this.isListening) {
       this.recognition.stop();
     }
   }
@@ -113,21 +113,30 @@ export class SpeechComponent implements OnInit {
   }
 
   createRapport() {
+    if (!this.rapport.titre || !this.rapport.contenu) {
+      alert('Both titre and contenu are required to create a rapport.');
+      return;
+    }
+  
     this.rapportService.creerRapport(this.rapport).subscribe(
       (response) => {
         console.log('Rapport created successfully', response);
+        // Clear the form after successful submission
+        this.rapport.titre = '';
+        this.rapport.contenu = '';
       },
       (error) => {
         console.error('Error creating rapport', error);
       }
     );
-  }
+  }  
 
   ngOnInit(): void {
-    this.authService.currentUser$.subscribe(user => {
+    this.authService.currentUser$.subscribe((user) => {
       if (user) {
-        this.rapport.utilisateur = user.username;
+        this.rapport.utilisateur.username = user.username;
       }
     });
   }
+  
 }

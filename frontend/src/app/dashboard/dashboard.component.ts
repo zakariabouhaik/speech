@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RapportService } from '../services/rapport.service';
-import {NgFor} from '@angular/common';
+import {DatePipe, NgFor} from '@angular/common';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   rapports: any[] = [];
 
-  constructor(private rapportService: RapportService, private router: Router) { }
+  constructor(private rapportService: RapportService, private router: Router, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.getAllRapports();
@@ -21,10 +21,11 @@ export class DashboardComponent implements OnInit {
   getAllRapports(): void {
     this.rapportService.getAllRapports().subscribe({
       next: (data) => {
-        // Assuming `data` is an array of rapports
         this.rapports = data.map(rapport => ({
-          titre: rapport.titre,  // Accessing the title
-          contenu: rapport.contenu // Accessing the description
+          titre: rapport.titre,          // Accessing the title
+          contenu: rapport.contenu,      // Accessing the description
+          nom: rapport.utilisateur?.username,
+          dateCreation: rapport.dateCreation ? this.datePipe.transform(rapport.dateCreation, 'dd/MM/yyyy, HH:mm:ss') : ''  // Formatting the date
         }));
       },
       error: (err) => {
@@ -32,6 +33,7 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+  
   
   createRapport(): void {
     this.router.navigate(['/speech']);
