@@ -47,4 +47,14 @@ getUsernameFromToken(token: string): string {
     return '';
   }
 }
+isLoggedIn(): boolean {
+  return this.isLocalStorageAvailable() && !!localStorage.getItem('accessToken');
+}
+private isLocalStorageAvailable(): boolean {
+  try {
+      return typeof localStorage !== 'undefined';
+  } catch (e) {
+      return false;
+  }
+}
 }

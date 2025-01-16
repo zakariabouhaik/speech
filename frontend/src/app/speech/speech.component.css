@@ -138,3 +138,19 @@ button:disabled {
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
+.right-align {
+  text-align: right;
+}
+
+.left-align {
+  text-align: left;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+.record-button.recording {
+  background-color: red;
+  color: white;
+}
